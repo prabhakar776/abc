@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_CANVAS_CanvasUserService" provider="java:RPC" style="rpc" use="encoded">
+		<operation xmlns:operNS="urn:http.service.canvas.instructure.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getJSONNineDigitId" qname="operNS:getJSONNineDigitId" returnQName="getJSONNineDigitIdReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userUuid" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.canvas.instructure.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getNineDigitId" qname="operNS:getNineDigitId" returnQName="getNineDigitIdReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userUuid" type="tns:string"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getJSONNineDigitId getNineDigitId" />
+		<parameter name="className" value="com.instructure.canvas.service.http.CanvasUserServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CanvasUserServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CanvasUserServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CANVAS_CanvasUserService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.canvas.instructure.com" />
+	</service>
+</deployment>

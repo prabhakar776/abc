@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.instructure.canvas.model.ActivityStream">
+		<field name="activityStreamId" type="long" />
+		<field name="createdAt" type="String" />
+		<field name="updatedAt" type="String" />
+		<field name="id" type="long" />
+		<field name="title" type="String" />
+		<field name="message" type="String" />
+		<field name="type" type="String" />
+		<field name="contextType" type="String" />
+		<field name="courseId" type="long" />
+		<field name="groupId" type="String" />
+		<field name="htmlUrl" type="String" />
+	</model>
+	<model name="com.instructure.canvas.model.Assignment">
+		<field name="assignmentId" type="long" />
+		<field name="name" type="String" />
+		<field name="submissionType" type="String" />
+	</model>
+	<model name="com.instructure.canvas.model.Award">
+		<field name="awardId" type="long" />
+		<field name="cvlId" type="String" />
+		<field name="cvlName" type="String" />
+		<field name="score" type="double" />
+		<field name="letterArticleId" type="long" />
+		<field name="certificateArticleId" type="long" />
+		<field name="active" type="boolean" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.instructure.canvas.model.CanvasAccount">
+		<field name="accountId" type="long" />
+		<field name="id" type="String" />
+		<field name="parentAccountId" type="String" />
+		<field name="name" type="String" />
+		<field name="rootAccountId" type="String" />
+		<field name="SISAccountId" type="String" />
+		<field name="status" type="long" />
+		<field name="timeZone" type="String" />
+	</model>
+	<model name="com.instructure.canvas.model.CanvasEnrollment">
+		<field name="courseId" type="long" />
+		<field name="userId" type="String" />
+		<field name="role" type="String" />
+		<field name="sectionId" type="String" />
+		<field name="status" type="String" />
+		<field name="associatedUserId" type="String" />
+	</model>
+	<model name="com.instructure.canvas.model.CanvasUser">
+		<field name="userId" type="long" />
+		<field name="SID" type="String" />
+		<field name="loginId" type="String" />
+		<field name="password" type="String" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="email" type="String" />
+		<field name="status" type="String" />
+		<field name="fullName" type="String" />
+		<field name="canvasUserId" type="String" />
+		<field name="currentScore" type="double" />
+		<field name="finalScore" type="double" />
+	</model>
+	<model name="com.instructure.canvas.model.CertLetterQueue">
+		<field name="id" type="long" />
+		<field name="courseId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="status" type="String" />
+		<field name="errorDescription" type="String" />
+		<field name="errorCount" type="int" />
+		<field name="modifiedDate" type="Date" />
+		<field name="startTime" type="Date" />
+		<field name="endTime" type="Date" />
+		<field name="zipFileLocation" type="String" />
+		<field name="expiryDate" type="Date" />
+		<field name="type" type="String" />
+		<field name="downloadDate" type="Date" />
+	</model>
+	<model name="com.instructure.canvas.model.Course">
+		<field name="canvasId" type="long" />
+		<field name="name" type="String" />
+		<field name="id" type="long" />
+		<field name="enrollments" type="String" />
+		<field name="course_code" type="String" />
+		<field name="sis_course_id" type="String" />
+		<field name="calendar" type="String" />
+		<field name="url" type="String" />
+		<field name="netacadCoreOfferingId" type="String" />
+		<field name="accountId" type="long" />
+		<field name="netacadCVLId" type="String" />
+		<field name="startDate" type="Date" />
+		<field name="endDate" type="Date" />
+	</model>
+	<model name="com.instructure.canvas.model.EnrollmentSeat">
+		<field name="id" type="long" />
+		<field name="token" type="String" />
+		<field name="rootAccountId" type="String" />
+		<field name="courseId" type="String" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="redeemDate" type="Date" />
+	</model>
+	<model name="com.instructure.canvas.model.Submission">
+		<field name="submissionId" type="long" />
+		<field name="assignmentId" type="long" />
+		<field name="courseId" type="long" />
+		<field name="attempt" type="int" />
+		<field name="grade" type="String" />
+		<field name="htmlUrl" type="String" />
+		<field name="score" type="double" />
+		<field name="submissionDate" type="String" />
+		<field name="graderId" type="String" />
+		<field name="userId" type="long" />
+	</model>
+	<model name="com.instructure.canvas.model.SubmissionVersion">
+		<field name="submissionId" type="long" />
+		<field name="assignmentId" type="long" />
+		<field name="assignmentName" type="String" />
+		<field name="attempt" type="int" />
+		<field name="body" type="String" />
+		<field name="currentGrade" type="String" />
+		<field name="currentGradedAt" type="String" />
+		<field name="currentGrader" type="String" />
+		<field name="gradeMatchesCurrentSubmission" type="String" />
+		<field name="gradedAt" type="String" />
+		<field name="grader" type="String" />
+		<field name="graderId" type="long" />
+		<field name="newGrade" type="String" />
+		<field name="newGradedAt" type="String" />
+		<field name="newGrader" type="String" />
+		<field name="previousGrade" type="String" />
+		<field name="previousGradedAt" type="String" />
+		<field name="previousGrader" type="String" />
+		<field name="score" type="long" />
+		<field name="userName" type="String" />
+		<field name="userId" type="long" />
+		<field name="submissionType" type="String" />
+		<field name="url" type="String" />
+		<field name="workflowState" type="String" />
+	</model>
+	<model name="com.instructure.canvas.model.Todo">
+		<field name="todoId" type="long" />
+		<field name="type" type="String" />
+		<field name="assignmentName" type="String" />
+		<field name="assignmentDescription" type="String" />
+		<field name="ignore_" type="String" />
+		<field name="ignorePermanently" type="String" />
+		<field name="needsGradingCount" type="long" />
+		<field name="contextType" type="String" />
+		<field name="courseId" type="String" />
+		<field name="groupId" type="String" />
+		<field name="htmlUrl" type="String" />
+	</model>
+	<model name="com.instructure.canvas.model.UserAward">
+		<field name="id" type="long" />
+		<field name="canvasUserId" type="long" />
+		<field name="courseId" type="long" />
+		<field name="externalId" type="long" />
+		<field name="certId" type="String" />
+		<field name="letter" type="boolean" />
+		<field name="createDate" type="Date" />
+	</model>
+</model-hints>

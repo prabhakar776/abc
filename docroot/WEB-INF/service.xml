@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="com.instructure.canvas">
+	<namespace>CANVAS</namespace>
+	
+	<entity name="CanvasCourseCopy" local-service="true" remote-service="false" />
+	
+	<entity name="CanvasAccount" local-service="true" remote-service="true">
+		<column name="accountId" type="long" primary="true" />
+		<column name="id" type="String" />
+		<column name="parentAccountId" type="String" />
+		<column name="name" type="String" />
+		<column name="rootAccountId" type="String" />
+		<column name="SISAccountId" type="String" />
+		<column name="status" type="long" />
+        <column name="timeZone" type="String"/>
+	</entity>
+	<entity name="ActivityStream" local-service="true" remote-service="true">
+		<column name="activityStreamId" type="long" primary="true" />
+		<column name="createdAt" type="String" />
+		<column name="updatedAt" type="String" />
+		<column name="id" type="long" />
+		<column name="title" type="String" />
+		<column name="message" type="String" />
+		<column name="type" type="String" />
+		<column name="contextType" type="String" />
+		<column name="courseId" type="long" />
+		<column name="groupId" type="String" />
+		<column name="htmlUrl" type="String" />
+	</entity>
+	<entity name="Course" local-service="true" remote-service="true">
+		<column name="canvasId" type="long" primary="true" />
+		<column name="name" type="String" />
+		<column name="id" type="long" />
+		<column name="enrollments" type="String" />
+		<column name="course_code" type="String" />
+		<column name="sis_course_id" type="String" />
+		<column name="calendar" type="String" />
+		<column name="url" type="String" />
+		<column name="netacadCoreOfferingId" type="String" />
+		<column name="accountId" type="long" />
+		<column name="netacadCVLId" type="String" />
+		<column name="startDate" type="Date" />
+		<column name="endDate" type="Date" />
+
+		<finder name="Id" return-type="Course">
+			<finder-column name="id" />
+		</finder>
+		<finder name="NetacadOfferingId" return-type="Course">
+			<finder-column name="netacadCoreOfferingId" />
+		</finder>
+		<finder name="NetacadCVLId" return-type="Collection">
+			<finder-column name="netacadCVLId"></finder-column>
+		</finder>
+
+		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
+		<reference package-path="com.liferay.portal" entity="Group" />
+	</entity>
+	
+	<entity name="Todo" local-service="true" remote-service="true">
+		<column name="todoId" type="long" primary="true" />
+		<column name="type" type="String" />
+		<column name="assignmentName" type="String" />
+		<column name="assignmentDescription" type="String" />
+		<column name="ignore_" type="String" />
+		<column name="ignorePermanently" type="String" />
+		<column name="needsGradingCount" type="long" />
+		<column name="contextType" type="String" />
+		<column name="courseId" type="String" />
+		<column name="groupId" type="String" />
+		<column name="htmlUrl" type="String" />
+	</entity>
+	<entity name="CanvasUser" local-service="true" remote-service="true">
+		<column name="userId" type="long" primary="true" />
+		<column name="SID" type="String" />
+		<column name="loginId" type="String" />
+		<column name="password" type="String" />
+		<column name="firstName" type="String" />
+		<column name="lastName" type="String" />
+		<column name="email" type="String" />
+		<column name="status" type="String" />
+		<column name="fullName" type="String" />
+		<column name="canvasUserId" type="String" />
+		<column name="currentScore" type="double" />
+		<column name="finalScore" type="double" />
+	</entity>
+	<entity name="CanvasEnrollment" local-service="true" remote-service="true">
+		<column name="courseId" type="long" primary="true" />
+		<column name="userId" type="String" />
+		<column name="role" type="String" />
+		<column name="sectionId" type="String" />
+		<column name="status" type="String" />
+		<column name="associatedUserId" type="String" />
+	</entity>
+	<entity name="EnrollmentSeat" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" />
+		<column name="token" type="String" />
+		<column name="rootAccountId" type="String" />
+		<column name="courseId" type="String" />
+		<column name="userId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="redeemDate" type="Date" />
+
+		<finder name="Token" return-type="EnrollmentSeat">
+			<finder-column name="token" />
+		</finder>
+		<finder name="CourseId" return-type="EnrollmentSeat">
+			<finder-column name="courseId" />
+		</finder>
+	</entity>
+	<entity name="Submission" local-service="true" remote-service="true">
+		<column name="submissionId" type="long" primary="true" />
+		<column name="assignmentId" type="long" />
+		<column name="courseId" type="long" />
+		<column name="attempt" type="int" />
+		<column name="grade" type="String" />
+		<column name="htmlUrl" type="String" />
+		<column name="score" type="double" />
+		<column name="submissionDate" type="String" />
+		<column name="graderId" type="String" />
+		<column name="userId" type="long" />
+	</entity>
+	<entity name="Assignment" local-service="true" remote-service="true" >
+		<column name="assignmentId" type="long" primary="true" />
+		<column name="name" type="String" />
+		<column name="submissionType" type="String" />
+	</entity>
+	<entity name="Award" local-service="true" remote-service="true">
+		<column name="awardId" type="long" primary="true" />	   
+		<column name="cvlId" type="String" />
+		<column name="cvlName" type="String" />
+		<column name="score" type="double" />
+		<column name="letterArticleId" type="long" />
+		<column name="certificateArticleId" type="long" />
+		<column name="active" type="boolean" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<finder name="Active" return-type="Collection">
+			<finder-column name="active" />
+		</finder>
+
+		<finder name="CVL_ID" return-type="Award">
+			<finder-column name="cvlId" />
+		</finder>
+				
+		<finder name="CVL_Name" return-type="Award">
+			<finder-column name="cvlName" />
+		</finder>
+	</entity>
+	<entity name="UserAward" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" />
+		<column name="canvasUserId" type="long" />
+		<column name="courseId" type="long" />
+        <column name="externalId" type="long" />
+		<column name="certId" type="String" />
+		<column name="letter" type="boolean" />
+		<column name="createDate" type="Date" />
+		
+		<finder name="CUID_CID_L" return-type="UserAward">
+			<finder-column name="canvasUserId" />
+			<finder-column name="courseId" />
+            <finder-column name="letter" />
+		</finder>
+		
+		<finder name="CourseId" return-type="UserAward">
+			<finder-column name="courseId" />
+			<finder-column name="canvasUserId" />
+		</finder>
+
+		<finder name="CertID" return-type="UserAward">
+			<finder-column name="certId" />
+		</finder>
+		
+		<finder name="CanvasUserId" return-type="Collection">
+			<finder-column name="canvasUserId" />
+		</finder>
+		
+	</entity>
+	<entity name="SubmissionVersion" local-service="true" remote-service="true">
+		<column name="submissionId" type="long" primary="true"/>
+		<column name="assignmentId" type="long"/>
+		<column name="assignmentName" type="String" />
+		<column name="attempt" type="int" />
+		<column name="body" type="String" />
+		<column name="currentGrade" type="String" />
+		<column name="currentGradedAt" type="String" />
+		<column name="currentGrader" type="String" />
+		<column name="gradeMatchesCurrentSubmission" type="String" />
+		<column name="gradedAt" type="String" />
+		<column name="grader" type="String" />
+		<column name="graderId" type="long" />
+		<column name="newGrade" type="String" />
+		<column name="newGradedAt" type="String" />
+		<column name="newGrader" type="String" />
+		<column name="previousGrade" type="String" />
+		<column name="previousGradedAt" type="String" />
+		<column name="previousGrader" type="String" />
+		<column name="score" type="long"/>
+		<column name="userName" type="String" />
+		<column name="userId" type="long" />
+		<column name="submissionType" type="String" />
+		<column name="url" type="String" />
+		<column name="workflowState" type="String" />
+	</entity>
+
+	<entity name="CertLetterQueue" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true"/>
+		<column name="courseId" type="long"/>
+		<column name="createDate" type="Date"/>
+		<column name="createdBy" type="long"/>
+		<column name="status" type="String" />
+		<column name="errorDescription" type="String" />
+		<column name="errorCount" type="int" />
+		<column name="modifiedDate" type="Date"/>
+		<column name="startTime" type="Date"/>
+		<column name="endTime" type="Date"/>
+		<column name="zipFileLocation" type="String" />
+		<column name="expiryDate" type="Date" />
+		<column name="type" type="String" />
+		<column name="downloadDate" type="Date" />
+		
+		<finder name="StatusAndErrorCount" return-type="Collection">
+			<finder-column name="status" arrayable-operator="OR" comparator="="/>
+			<finder-column name="errorCount" arrayable-operator="OR" comparator="="/>
+		</finder>
+		
+		<finder name="CourseIdStatusCreatedByAndType" return-type="Collection">
+			<finder-column name="courseId" />
+			<finder-column name="status" />
+			<finder-column name="createdBy" />
+			<finder-column name="type" />
+		</finder>
+		
+		<finder name="CourseIdStatusAndCreatedBy" return-type="Collection">
+			<finder-column name="courseId" />
+			<finder-column name="status" />
+			<finder-column name="createdBy" />
+		</finder>
+		
+		<finder name="CourseIdAndCreatedBy" return-type="Collection">
+			<finder-column name="courseId" />
+			<finder-column name="createdBy" />
+		</finder>
+		
+		<finder name="StatusAndExpiryDate" return-type="Collection">
+			<finder-column name="status" />
+			<finder-column name="expiryDate" comparator="&lt;" />
+		</finder>
+		
+		<finder name="CourseIdCreatedByAndStatusNotEqual" return-type="Collection">
+			<finder-column name="courseId" />
+			<finder-column name="createdBy" />
+			<finder-column name="status" comparator="!="/>
+		</finder>
+	</entity>
+</service-builder>

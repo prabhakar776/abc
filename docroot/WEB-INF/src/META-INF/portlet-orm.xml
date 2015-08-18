@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.instructure.canvas.model.impl.ActivityStreamModelImpl">
+		<attributes>
+			<id name="activityStreamId" />
+			<basic name="createdAt" />
+			<basic name="updatedAt" />
+			<basic name="id">
+				<column name="ID_" />
+			</basic>
+			<basic name="title" />
+			<basic name="message" />
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<basic name="contextType" />
+			<basic name="courseId" />
+			<basic name="groupId" />
+			<basic name="htmlUrl" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.AssignmentModelImpl">
+		<attributes>
+			<id name="assignmentId" />
+			<basic name="name" />
+			<basic name="submissionType" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.AwardModelImpl">
+		<attributes>
+			<id name="awardId" />
+			<basic name="cvlId" />
+			<basic name="cvlName" />
+			<basic name="score" />
+			<basic name="letterArticleId" />
+			<basic name="certificateArticleId" />
+			<basic name="active">
+				<column name="ACTIVE_" />
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.CanvasAccountModelImpl">
+		<attributes>
+			<id name="accountId" />
+			<basic name="id">
+				<column name="ID_" />
+			</basic>
+			<basic name="parentAccountId" />
+			<basic name="name" />
+			<basic name="rootAccountId" />
+			<basic name="SISAccountId" />
+			<basic name="status" />
+			<basic name="timeZone" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.CanvasEnrollmentModelImpl">
+		<attributes>
+			<id name="courseId" />
+			<basic name="userId" />
+			<basic name="role" />
+			<basic name="sectionId" />
+			<basic name="status" />
+			<basic name="associatedUserId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.CanvasUserModelImpl">
+		<attributes>
+			<id name="userId" />
+			<basic name="SID" />
+			<basic name="loginId" />
+			<basic name="password">
+				<column name="PASSWORD_" />
+			</basic>
+			<basic name="firstName" />
+			<basic name="lastName" />
+			<basic name="email" />
+			<basic name="status" />
+			<basic name="fullName" />
+			<basic name="canvasUserId" />
+			<basic name="currentScore" />
+			<basic name="finalScore" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.CertLetterQueueModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="courseId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createdBy" />
+			<basic name="status" />
+			<basic name="errorDescription" />
+			<basic name="errorCount" />
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="startTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="zipFileLocation" />
+			<basic name="expiryDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<basic name="downloadDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.CourseModelImpl">
+		<attributes>
+			<id name="canvasId" />
+			<basic name="name" />
+			<basic name="id">
+				<column name="ID_" />
+			</basic>
+			<basic name="enrollments" />
+			<basic name="course_code" />
+			<basic name="sis_course_id" />
+			<basic name="calendar" />
+			<basic name="url" />
+			<basic name="netacadCoreOfferingId" />
+			<basic name="accountId" />
+			<basic name="netacadCVLId" />
+			<basic name="startDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.EnrollmentSeatModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="token" />
+			<basic name="rootAccountId" />
+			<basic name="courseId" />
+			<basic name="userId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="redeemDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.SubmissionModelImpl">
+		<attributes>
+			<id name="submissionId" />
+			<basic name="assignmentId" />
+			<basic name="courseId" />
+			<basic name="attempt" />
+			<basic name="grade" />
+			<basic name="htmlUrl" />
+			<basic name="score" />
+			<basic name="submissionDate" />
+			<basic name="graderId" />
+			<basic name="userId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.SubmissionVersionModelImpl">
+		<attributes>
+			<id name="submissionId" />
+			<basic name="assignmentId" />
+			<basic name="assignmentName" />
+			<basic name="attempt" />
+			<basic name="body" />
+			<basic name="currentGrade" />
+			<basic name="currentGradedAt" />
+			<basic name="currentGrader" />
+			<basic name="gradeMatchesCurrentSubmission" />
+			<basic name="gradedAt" />
+			<basic name="grader" />
+			<basic name="graderId" />
+			<basic name="newGrade" />
+			<basic name="newGradedAt" />
+			<basic name="newGrader" />
+			<basic name="previousGrade" />
+			<basic name="previousGradedAt" />
+			<basic name="previousGrader" />
+			<basic name="score" />
+			<basic name="userName" />
+			<basic name="userId" />
+			<basic name="submissionType" />
+			<basic name="url" />
+			<basic name="workflowState" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.TodoModelImpl">
+		<attributes>
+			<id name="todoId" />
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<basic name="assignmentName" />
+			<basic name="assignmentDescription" />
+			<basic name="ignore_" />
+			<basic name="ignorePermanently" />
+			<basic name="needsGradingCount" />
+			<basic name="contextType" />
+			<basic name="courseId" />
+			<basic name="groupId" />
+			<basic name="htmlUrl" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.instructure.canvas.model.impl.UserAwardModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="canvasUserId" />
+			<basic name="courseId" />
+			<basic name="externalId" />
+			<basic name="certId" />
+			<basic name="letter" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="canvasUserUuid" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.instructure.canvas.model.impl.ActivityStreamImpl" name="ActivityStream">
+		<table name="CANVAS_ActivityStream" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.AssignmentImpl" name="Assignment">
+		<table name="CANVAS_Assignment" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.AwardImpl" name="Award">
+		<table name="CANVAS_Award" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.CanvasAccountImpl" name="CanvasAccount">
+		<table name="CANVAS_CanvasAccount" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.CanvasEnrollmentImpl" name="CanvasEnrollment">
+		<table name="CANVAS_CanvasEnrollment" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.CanvasUserImpl" name="CanvasUser">
+		<table name="CANVAS_CanvasUser" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.CertLetterQueueImpl" name="CertLetterQueue">
+		<table name="CANVAS_CertLetterQueue" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.CourseImpl" name="Course">
+		<table name="CANVAS_Course" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.EnrollmentSeatImpl" name="EnrollmentSeat">
+		<table name="CANVAS_EnrollmentSeat" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.SubmissionImpl" name="Submission">
+		<table name="CANVAS_Submission" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.SubmissionVersionImpl" name="SubmissionVersion">
+		<table name="CANVAS_SubmissionVersion" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.TodoImpl" name="Todo">
+		<table name="CANVAS_Todo" />
+		<attributes />
+	</entity>
+	<entity class="com.instructure.canvas.model.impl.UserAwardImpl" name="UserAward">
+		<table name="CANVAS_UserAward" />
+		<attributes />
+	</entity>
+</entity-mappings>

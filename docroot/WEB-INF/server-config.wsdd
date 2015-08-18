@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter name="adminPassword" value="admin" />
+		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl" />
+		<parameter name="sendXsiTypes" value="true" />
+		<parameter name="sendMultiRefs" value="true" />
+		<parameter name="sendXMLDeclaration" value="true" />
+		<parameter name="axis.sendMinimizedElements" value="true" />
+		<requestFlow>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="session" />
+			</handler>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="request" />
+				<parameter name="extension" value=".jwr" />
+			</handler>
+		</requestFlow>
+	</globalConfiguration>
+	<handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder" />
+	<handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper" />
+	<handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler" />
+	<transport name="http">
+		<requestFlow>
+			<handler type="URLMapper" />
+			<handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler" />
+		</requestFlow>
+	</transport>
+	<transport name="local">
+		<responseFlow>
+			<handler type="LocalResponder" />
+		</responseFlow>
+	</transport>
+	<service name="Plugin_CANVAS_ActivityStreamService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="com.instructure.canvas.service.http.ActivityStreamServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ActivityStreamServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ActivityStreamServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CANVAS_ActivityStreamService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.canvas.instructure.com" />
+	</service>
+	<service name="Plugin_CANVAS_CanvasAccountService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="com.instructure.canvas.service.http.CanvasAccountServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CanvasAccountServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CanvasAccountServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CANVAS_CanvasAccountService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.canvas.instructure.com" />
+	</service>
+	<service name="Plugin_CANVAS_CanvasEnrollmentService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="com.instructure.canvas.service.http.CanvasEnrollmentServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CanvasEnrollmentServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CanvasEnrollmentServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CANVAS_CanvasEnrollmentService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.canvas.instructure.com" />
+	</service>
+	<service name="Plugin_CANVAS_CanvasUserService" provider="java:RPC" style="rpc" use="encoded">
+		<operation xmlns:operNS="urn:http.service.canvas.instructure.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getJSONNineDigitId" qname="operNS:getJSONNineDigitId" returnQName="getJSONNineDigitIdReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userUuid" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.canvas.instructure.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getNineDigitId" qname="operNS:getNineDigitId" returnQName="getNineDigitIdReturn" returnType="rtns:string" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="userUuid" type="tns:string"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getJSONNineDigitId getNineDigitId" />
+		<parameter name="className" value="com.instructure.canvas.service.http.CanvasUserServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CanvasUserServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CanvasUserServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CANVAS_CanvasUserService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.canvas.instructure.com" />
+	</service>
+	<service name="Plugin_CANVAS_CourseService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="com.instructure.canvas.service.http.CourseServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="CourseServiceSoap" />
+		<parameter name="wsdlServiceElement" value="CourseServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CANVAS_CourseService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.canvas.instructure.com" />
+	</service>
+	<service name="Plugin_CANVAS_TodoService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="com.instructure.canvas.service.http.TodoServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="TodoServiceSoap" />
+		<parameter name="wsdlServiceElement" value="TodoServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_CANVAS_TodoService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.canvas.instructure.com" />
+	</service>
+</deployment>

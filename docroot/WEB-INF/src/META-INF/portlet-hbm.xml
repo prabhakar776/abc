@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.instructure.canvas.model.ActivityStream" />
+	<import class="com.instructure.canvas.model.Assignment" />
+	<import class="com.instructure.canvas.model.Award" />
+	<import class="com.instructure.canvas.model.CanvasAccount" />
+	<import class="com.instructure.canvas.model.CanvasCourseCopy" />
+	<import class="com.instructure.canvas.model.CanvasEnrollment" />
+	<import class="com.instructure.canvas.model.CanvasUser" />
+	<import class="com.instructure.canvas.model.CertLetterQueue" />
+	<import class="com.instructure.canvas.model.Course" />
+	<import class="com.instructure.canvas.model.EnrollmentSeat" />
+	<import class="com.instructure.canvas.model.Submission" />
+	<import class="com.instructure.canvas.model.SubmissionVersion" />
+	<import class="com.instructure.canvas.model.Todo" />
+	<import class="com.instructure.canvas.model.UserAward" />
+	<class name="com.instructure.canvas.model.impl.ActivityStreamImpl" table="CANVAS_ActivityStream">
+		<cache usage="read-write" />
+		<id name="activityStreamId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="createdAt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="updatedAt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id" type="com.liferay.portal.dao.orm.hibernate.LongType" column="id_" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="message" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="type_" />
+		<property name="contextType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="courseId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="htmlUrl" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.AssignmentImpl" table="CANVAS_Assignment">
+		<cache usage="read-write" />
+		<id name="assignmentId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="submissionType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.AwardImpl" table="CANVAS_Award">
+		<cache usage="read-write" />
+		<id name="awardId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="cvlId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cvlName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="score" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="letterArticleId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="certificateArticleId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="active" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="active_" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.CanvasAccountImpl" table="CANVAS_CanvasAccount">
+		<cache usage="read-write" />
+		<id name="accountId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="id" type="com.liferay.portal.dao.orm.hibernate.StringType" column="id_" />
+		<property name="parentAccountId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rootAccountId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="SISAccountId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="timeZone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.CanvasEnrollmentImpl" table="CANVAS_CanvasEnrollment">
+		<cache usage="read-write" />
+		<id name="courseId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="role" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sectionId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="associatedUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.CanvasUserImpl" table="CANVAS_CanvasUser">
+		<cache usage="read-write" />
+		<id name="userId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="SID" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="loginId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="password" type="com.liferay.portal.dao.orm.hibernate.StringType" column="password_" />
+		<property name="firstName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="lastName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fullName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="canvasUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="currentScore" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="finalScore" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.CertLetterQueueImpl" table="CANVAS_CertLetterQueue">
+		<cache usage="read-write" />
+		<id name="id" column="id_" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="courseId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="errorDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="errorCount" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="startTime" type="org.hibernate.type.TimestampType" />
+		<property name="endTime" type="org.hibernate.type.TimestampType" />
+		<property name="zipFileLocation" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="expiryDate" type="org.hibernate.type.TimestampType" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="type_" />
+		<property name="downloadDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.CourseImpl" table="CANVAS_Course">
+		<cache usage="read-write" />
+		<id name="canvasId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id" type="com.liferay.portal.dao.orm.hibernate.LongType" column="id_" />
+		<property name="enrollments" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="course_code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sis_course_id" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="calendar" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="url" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="netacadCoreOfferingId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="accountId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="netacadCVLId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="startDate" type="org.hibernate.type.TimestampType" />
+		<property name="endDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.EnrollmentSeatImpl" table="CANVAS_EnrollmentSeat">
+		<cache usage="read-write" />
+		<id name="id" column="id_" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="token" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rootAccountId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="courseId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="redeemDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.SubmissionImpl" table="CANVAS_Submission">
+		<cache usage="read-write" />
+		<id name="submissionId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="assignmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="courseId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="attempt" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="grade" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="htmlUrl" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="score" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="submissionDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="graderId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.SubmissionVersionImpl" table="CANVAS_SubmissionVersion">
+		<cache usage="read-write" />
+		<id name="submissionId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="assignmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="assignmentName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="attempt" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="body" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="currentGrade" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="currentGradedAt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="currentGrader" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="gradeMatchesCurrentSubmission" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="gradedAt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="grader" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="graderId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="newGrade" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="newGradedAt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="newGrader" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="previousGrade" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="previousGradedAt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="previousGrader" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="score" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="submissionType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="url" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="workflowState" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.TodoImpl" table="CANVAS_Todo">
+		<cache usage="read-write" />
+		<id name="todoId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="type_" />
+		<property name="assignmentName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="assignmentDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ignore_" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ignorePermanently" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="needsGradingCount" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="contextType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="courseId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="htmlUrl" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.instructure.canvas.model.impl.UserAwardImpl" table="CANVAS_UserAward">
+		<cache usage="read-write" />
+		<id name="id" column="id_" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="canvasUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="courseId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="externalId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="certId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="letter" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+	</class>
+</hibernate-mapping>

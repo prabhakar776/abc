@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.instructure.canvas.service.ActivityStreamLocalService" class="com.instructure.canvas.service.impl.ActivityStreamLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.ActivityStreamService" class="com.instructure.canvas.service.impl.ActivityStreamServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.ActivityStreamPersistence" class="com.instructure.canvas.service.persistence.ActivityStreamPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.AssignmentLocalService" class="com.instructure.canvas.service.impl.AssignmentLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.AssignmentService" class="com.instructure.canvas.service.impl.AssignmentServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.AssignmentPersistence" class="com.instructure.canvas.service.persistence.AssignmentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.AwardLocalService" class="com.instructure.canvas.service.impl.AwardLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.AwardService" class="com.instructure.canvas.service.impl.AwardServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.AwardPersistence" class="com.instructure.canvas.service.persistence.AwardPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.CanvasAccountLocalService" class="com.instructure.canvas.service.impl.CanvasAccountLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.CanvasAccountService" class="com.instructure.canvas.service.impl.CanvasAccountServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.CanvasAccountPersistence" class="com.instructure.canvas.service.persistence.CanvasAccountPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.CanvasCourseCopyLocalService" class="com.instructure.canvas.service.impl.CanvasCourseCopyLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.CanvasEnrollmentLocalService" class="com.instructure.canvas.service.impl.CanvasEnrollmentLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.CanvasEnrollmentService" class="com.instructure.canvas.service.impl.CanvasEnrollmentServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.CanvasEnrollmentPersistence" class="com.instructure.canvas.service.persistence.CanvasEnrollmentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.CanvasUserLocalService" class="com.instructure.canvas.service.impl.CanvasUserLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.CanvasUserService" class="com.instructure.canvas.service.impl.CanvasUserServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.CanvasUserPersistence" class="com.instructure.canvas.service.persistence.CanvasUserPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.CertLetterQueueLocalService" class="com.instructure.canvas.service.impl.CertLetterQueueLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.CertLetterQueueService" class="com.instructure.canvas.service.impl.CertLetterQueueServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.CertLetterQueuePersistence" class="com.instructure.canvas.service.persistence.CertLetterQueuePersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.CourseLocalService" class="com.instructure.canvas.service.impl.CourseLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.CourseService" class="com.instructure.canvas.service.impl.CourseServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.CoursePersistence" class="com.instructure.canvas.service.persistence.CoursePersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.EnrollmentSeatLocalService" class="com.instructure.canvas.service.impl.EnrollmentSeatLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.EnrollmentSeatService" class="com.instructure.canvas.service.impl.EnrollmentSeatServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.EnrollmentSeatPersistence" class="com.instructure.canvas.service.persistence.EnrollmentSeatPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.SubmissionLocalService" class="com.instructure.canvas.service.impl.SubmissionLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.SubmissionService" class="com.instructure.canvas.service.impl.SubmissionServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.SubmissionPersistence" class="com.instructure.canvas.service.persistence.SubmissionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.SubmissionVersionLocalService" class="com.instructure.canvas.service.impl.SubmissionVersionLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.SubmissionVersionService" class="com.instructure.canvas.service.impl.SubmissionVersionServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.SubmissionVersionPersistence" class="com.instructure.canvas.service.persistence.SubmissionVersionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.TodoLocalService" class="com.instructure.canvas.service.impl.TodoLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.TodoService" class="com.instructure.canvas.service.impl.TodoServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.TodoPersistence" class="com.instructure.canvas.service.persistence.TodoPersistenceImpl" parent="basePersistence" />
+	<bean id="com.instructure.canvas.service.UserAwardLocalService" class="com.instructure.canvas.service.impl.UserAwardLocalServiceImpl" />
+	<bean id="com.instructure.canvas.service.UserAwardService" class="com.instructure.canvas.service.impl.UserAwardServiceImpl" />
+	<bean id="com.instructure.canvas.service.persistence.UserAwardPersistence" class="com.instructure.canvas.service.persistence.UserAwardPersistenceImpl" parent="basePersistence" />
+</beans>

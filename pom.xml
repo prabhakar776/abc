@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!-- DONE 10/28/2014 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.netacad.portlets</groupId>
+		<artifactId>portlets</artifactId>
+		<version>1.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>canvas-integration-portlet</artifactId>
+	<packaging>war</packaging>
+	<name>Canvas Integration Portlet</name>
+	
+	<dependencies>
+		
+		<dependency>
+		    <groupId>com.netacad.portlet.62</groupId>
+		    <artifactId>canvas-integration-portlet-service</artifactId>
+		    <version>${version}</version>
+		</dependency>
+		
+
+		<dependency>
+		   <groupId>com.netacad.hook.62</groupId>
+		   <artifactId>utility-hook-service</artifactId>
+		   <version>${version}</version>
+		   <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda.time.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>oro</groupId>
+			<artifactId>oro</artifactId>
+			<version>${oro.version}</version>
+
+		</dependency>
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.converter</artifactId>
+			<version>${fr.opensagres.xdocreport.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.core</artifactId>
+			<version>${fr.opensagres.xdocreport.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.document</artifactId>
+			<version>${fr.opensagres.xdocreport.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.document.odt</artifactId>
+			<version>${fr.opensagres.xdocreport.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.template</artifactId>
+			<version>${fr.opensagres.xdocreport.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.template.velocity</artifactId>
+			<version>${fr.opensagres.xdocreport.version}</version>
+		</dependency>
+		<dependency>
+		<groupId>net.java.dev.rome</groupId>
+		<artifactId>rome</artifactId>
+		<version>${net.java.dev.rome.version}</version>
+	</dependency>
+		<dependency>
+			<groupId>com.netacad.portlet.62</groupId>
+			<artifactId>utility-hook-service</artifactId>
+			<version>${version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.netacad.portlet.62</groupId>
+		    <artifactId>salesforce-portlet-service</artifactId>
+		    <version>${version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${org.json.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-impl</artifactId>
+			<version>${liferay.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.artofsolving</groupId>
+			<artifactId>jodconverter-maven-plugin</artifactId>
+			<version>${jodconverter.maven.plugin.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>easyconf</groupId>
+			<artifactId>easyconf</artifactId>
+			<version>${easyconf.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>xdoclet</groupId>
+			<artifactId>xdoclet</artifactId>
+			<version>${xdoclet.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>xdoclet</groupId>
+			<artifactId>xdoclet-web-module</artifactId>
+			<version>${xdoclet.web.module.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mnode.ical4j</groupId>
+			<artifactId>ical4j</artifactId>
+			<version>${ical4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jodd</groupId>
+			<artifactId>jodd</artifactId>
+			<version>${org.jodd.version}</version>
+		</dependency>
+<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>
